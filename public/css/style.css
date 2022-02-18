@@ -1,1 +1,7 @@
-body {background-color:blue}
+body {
+    background-color:beige;
+}
+
+#formulario-pergunta{
+    margin-top: 10vh;
+}
