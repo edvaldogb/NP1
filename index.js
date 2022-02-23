@@ -3,8 +3,19 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const connection = require("./database/database");
 
+// database
+connection
+.authenticate()
+.then(() => {
+    console.log("conacxão feita com banco de dados!");
+})
+.catch((msgErro) => {
+    console.log(msgErro);
+})
 
+// Acionando motor ejs.
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
