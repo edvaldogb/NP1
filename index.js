@@ -1,11 +1,12 @@
-// Plataforma de Perguntas e Respostas.
+/** Plataforma de Perguntas e Respostas. */
 
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
+const perguntaModel = require("./database/Pergunta");
 
-// database
+/** database */ 
 connection
 .authenticate()
 .then(() => {
@@ -15,15 +16,15 @@ connection
     console.log(msgErro);
 })
 
-// Acionando motor ejs.
+/** Acionando motor ejs. */
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-// BodyParser
+/** BodyParser */
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-// Rotas.
+/** Rotas. */
 app.get("/", (req,res) => {
     res.render('index');
 });
